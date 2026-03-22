@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog — Ad Soyad</title>
+  <meta name="description" content="Hukuki Teknoloji ve Yapay Zeka üzerine yazılar">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Ad <span>Soyad</span></a>
+    <ul class="nav-links">
+      <li><a href="/#uygulamalar">Uygulamalar</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/#hakkimda">Hakkımda</a></li>
+      <li><a href="/#iletisim">İletişim</a></li>
+    </ul>
+    <a href="/#iletisim" class="nav-cta">İletişime Geç</a>
+  </nav>
+
+  <div class="page-hero">
+    <div class="section-tag">Yazılar</div>
+    <h1>Blog</h1>
+    <p style="color:var(--muted);max-width:520px;margin-top:.75rem;">Hukuki teknoloji, yapay zeka ve dijital dönüşüm üzerine güncel içerikler.</p>
+    <div class="blog-filters" id="filters">
+      <button class="filter-btn active" data-cat="all">Tümü</button>
+    </div>
+  </div>
+
+  <section class="blog-list-section">
+    <div id="posts-grid" class="blog-grid">
+      <div class="blog-loading">Yazılar yükleniyor...</div>
+    </div>
+    <div id="no-posts" style="display:none;color:var(--muted);padding:3rem 0;text-align:center;">Bu kategoride henüz yazı yok.</div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Ad <span>Soyad</span></div>
+    <ul class="footer-links">
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/#hakkimda">Hakkımda</a></li>
+      <li><a href="/#iletisim">İletişim</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 Ad Soyad.</p>
+  </footer>
+
+  <script src="/public/main.js"></script>
+  <script>
+    let allPosts = [];
+    let activeCategory = 'all';
+
+    async function loadPosts() {
+      const grid = document.getElementById('posts-grid');
+      try {
+        const res = await fetch('/public/posts-index.json');
+        if (!res.ok) throw new Error('not found');
+        allPosts = await res.json();
+        buildFilters();
+        renderPosts('all');
+      } catch {
+        grid.innerHTML = '<p style="color:var(--muted);padding:2rem 0;">Henüz yazı yayınlanmamış.</p>';
+      }
+    }
+
+    function buildFilters() {
+      const cats = ['all', ...new Set(allPosts.map(p => p.category).filter(Boolean))];
+      const container = document.getElementById('filters');
+      container.innerHTML = cats.map(c =>
+        `<button class="filter-btn ${c==='all'?'active':''}" data-cat="${c}">${c==='all'?'Tümü':c}</button>`
+      ).join('');
+      container.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderPosts(btn.dataset.cat);
+        });
+      });
+    }
+
+    function renderPosts(cat) {
+      const grid = document.getElementById('posts-grid');
+      const noP = document.getElementById('no-posts');
+      const filtered = cat === 'all' ? allPosts : allPosts.filter(p => p.category === cat);
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        noP.style.display = 'block';
+        return;
+      }
+      noP.style.display = 'none';
+      grid.innerHTML = filtered.map(p => `
+        <a href="/blog/${p.slug}.html" class="blog-card">
+          <div class="blog-img">${p.image ? `<img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.parentElement.innerHTML='📝'">` : '📝'}</div>
+          <div class="blog-body">
+            <span class="blog-tag">${p.category || 'Genel'}</span>
+            <h3>${p.title}</h3>
+            <p>${p.excerpt || ''}</p>
+            <div class="blog-meta">
+              <span>📅 ${p.date}</span>
+              <span>· ${p.readtime || '5'} dk okuma</span>
+            </div>
+          </div>
+        </a>`).join('');
+    }
+
+    loadPosts();
+  </script>
+</body>
+</html>

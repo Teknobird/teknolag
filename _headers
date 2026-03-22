@@ -1,0 +1,26 @@
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-XSS-Protection: 1; mode=block
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/blog.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/blog/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/public/posts-index.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+/public/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/public/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/public/images/*
+  Cache-Control: public, max-age=31536000, immutable

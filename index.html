@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ad Soyad — Teknoloji & Yapay Zeka Uzmanı</title>
+  <meta name="description" content="Hukuki Teknoloji, Yapay Zeka Otomasyon ve Dijital Dönüşüm Uzmanı">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Ad <span>Soyad</span></a>
+    <ul class="nav-links">
+      <li><a href="#uygulamalar">Uygulamalar</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="#hakkimda">Hakkımda</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+    <a href="#iletisim" class="nav-cta">İletişime Geç</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-line"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Yapay Zeka & Teknoloji Uzmanı</div>
+      <h1>Hukuki <em>Yapay Zeka</em><br>& Otomasyon<br>Çözümleri</h1>
+      <p>Hukuk sektörünün dijital dönüşümünde öncü çözümler, yapay zeka destekli araçlar ve otomasyon sistemleri geliştiriyorum.</p>
+      <div class="hero-actions">
+        <a href="/blog.html" class="btn-primary">Blog Yazıları</a>
+        <a href="#hakkimda" class="btn-outline">Hakkımda</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-number">50<span>+</span></div><div class="stat-label">Proje</div></div>
+      <div class="stat"><div class="stat-number">8<span>+</span></div><div class="stat-label">Yıl Deneyim</div></div>
+      <div class="stat"><div class="stat-number">200<span>+</span></div><div class="stat-label">Makale</div></div>
+    </div>
+  </section>
+
+  <!-- Son Blog Yazıları -->
+  <section id="son-yazilar" style="padding:5rem 4rem;">
+    <div class="reveal">
+      <div class="section-tag">Son Yazılar</div>
+      <h2 class="section-title">Blog</h2>
+      <p class="section-sub">Hukuki teknoloji ve yapay zeka üzerine güncel içerikler.</p>
+    </div>
+    <div id="blog-preview" class="blog-grid reveal">
+      <div class="blog-loading">Yazılar yükleniyor...</div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="/blog.html" class="btn-outline">Tüm Yazıları Gör →</a>
+    </div>
+  </section>
+
+  <!-- Hakkımda -->
+  <section id="hakkimda" style="padding:5rem 4rem;">
+    <div class="about-inner">
+      <div class="about-visual reveal">
+        <div class="about-photo">👤</div>
+        <div class="about-deco"></div>
+      </div>
+      <div class="reveal">
+        <div class="section-tag">Hakkımda</div>
+        <h2 class="section-title">Ad Soyad</h2>
+        <p style="color:var(--muted);margin-bottom:1.25rem;line-height:1.8;">Hukuki teknoloji ve yapay zeka alanında 8 yılı aşkın deneyime sahibim. Hukuk fakültesi mezuniyetimin ardından yazılım geliştirme ve veri bilimi alanlarında kendimi geliştirerek bu iki disiplini birleştiren özgün bir uzmanlık alanı oluşturdum.</p>
+        <div class="about-tags">
+          <span class="tag">Hukuki Teknoloji</span><span class="tag">Yapay Zeka</span>
+          <span class="tag">Otomasyon</span><span class="tag">KVKK / GDPR</span>
+          <span class="tag">Veri Analizi</span><span class="tag">LegalTech</span>
+        </div>
+        <a href="#iletisim" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">Benimle Çalışalım</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- İletişim -->
+  <section id="iletisim" class="contact" style="padding:5rem 4rem;">
+    <div class="contact-inner">
+      <div class="reveal">
+        <div class="section-tag">İletişim</div>
+        <h2 class="section-title">Birlikte Çalışalım</h2>
+        <div class="contact-info" style="margin-top:2rem;">
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div class="contact-item-text"><h4>E-posta</h4><a href="mailto:info@example.com">info@example.com</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🐦</div>
+            <div class="contact-item-text"><h4>Twitter / X</h4><a href="#">@kullaniciadi</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group"><label>Ad Soyad</label><input type="text" placeholder="Adınız"></div>
+            <div class="form-group"><label>E-posta</label><input type="email" placeholder="email@ornek.com"></div>
+          </div>
+          <div class="form-group"><label>Mesajınız</label><textarea placeholder="Mesajınız..."></textarea></div>
+          <button type="button" class="btn-primary" onclick="handleFormSubmit(this)">Mesaj Gönder →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Ad <span>Soyad</span></div>
+    <ul class="footer-links">
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="#hakkimda">Hakkımda</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 Ad Soyad. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="/public/main.js"></script>
+  <script>
+    // Ana sayfada son 3 blog yazısını göster
+    async function loadBlogPreview() {
+      const container = document.getElementById('blog-preview');
+      try {
+        const res = await fetch('/public/posts-index.json');
+        if (!res.ok) throw new Error();
+        const posts = await res.json();
+        const latest = posts.slice(0, 3);
+        if (latest.length === 0) {
+          container.innerHTML = '<p style="color:var(--muted)">Henüz yazı yok.</p>';
+          return;
+        }
+        container.innerHTML = latest.map(p => `
+          <a href="/blog/${p.slug}.html" class="blog-card">
+            <div class="blog-img">${p.image ? `<img src="${p.image}" alt="${p.title}" loading="lazy">` : '📝'}</div>
+            <div class="blog-body">
+              <span class="blog-tag">${p.category || 'Genel'}</span>
+              <h3>${p.title}</h3>
+              <p>${p.excerpt || ''}</p>
+              <div class="blog-meta"><span>📅 ${p.date}</span><span>· ${p.readtime || '5'} dk okuma</span></div>
+            </div>
+          </a>`).join('');
+      } catch {
+        container.innerHTML = '<p style="color:var(--muted)">Yazılar yüklenemedi.</p>';
+      }
+    }
+    loadBlogPreview();
+  </script>
+</body>
+</html>

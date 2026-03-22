@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "buyuk-dil-modelleri-hukuk",
+    "title": "Büyük Dil Modelleri Hukuk Pratiğini Nasıl Değiştiriyor?",
+    "date": "15 Mart 2025",
+    "category": "Yapay Zeka",
+    "excerpt": "GPT-4, Claude ve Gemini'nin hukuki araştırma ve belge hazırlama süreçlerine etkisi üzerine kapsamlı bir değerlendirme.",
+    "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=70&fit=crop",
+    "readtime": "8",
+    "tags": "yapay zeka, hukuk, LLM, dönüşüm"
+  },
+  {
+    "slug": "kvkk-yapay-zeka",
+    "title": "KVKK ve Yapay Zeka: Şirketlerin Bilmesi Gerekenler",
+    "date": "02 Mart 2025",
+    "category": "KVKK & GDPR",
+    "excerpt": "Yapay zeka sistemleri geliştiren veya kullanan şirketlerin KVKK kapsamındaki yükümlülükleri ve pratik uyum adımları.",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=70&fit=crop",
+    "readtime": "10",
+    "tags": "KVKK, GDPR, yapay zeka, veri koruma, uyum"
+  }
+]

@@ -1,0 +1,3 @@
+# 404 için fallback yok — statik site
+# www → apex yönlendirmesi (domain ayarladıktan sonra açın)
+# https://www.example.com/*  https://example.com/:splat  301

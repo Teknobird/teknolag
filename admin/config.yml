@@ -1,0 +1,73 @@
+backend:
+  name: github
+  repo: GITHUB_KULLANICI_ADINIZ/REPO_ADINIZ   # ← buraya GitHub kullanıcı adınız/repo adınız
+  branch: main
+  base_url: https://api.netlify.com            # GitHub OAuth için (ücretsiz)
+  auth_endpoint: auth
+
+media_folder: "public/images"
+public_folder: "/public/images"
+
+collections:
+  - name: "blog"
+    label: "Blog Yazıları"
+    folder: "blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - label: "Başlık"
+        name: "title"
+        widget: "string"
+        hint: "Yazının başlığı"
+
+      - label: "Yayın Tarihi"
+        name: "date"
+        widget: "datetime"
+        format: "DD MMMM YYYY"
+        date_format: "DD MMMM YYYY"
+        time_format: false
+        default: ""
+
+      - label: "Kategori"
+        name: "category"
+        widget: "select"
+        options:
+          - "Yapay Zeka"
+          - "Hukuki Teknoloji"
+          - "KVKK & GDPR"
+          - "Otomasyon"
+          - "Blockchain"
+          - "Dijital Dönüşüm"
+          - "Genel"
+        default: "Genel"
+
+      - label: "Özet"
+        name: "excerpt"
+        widget: "text"
+        hint: "Blog listesinde görünecek kısa açıklama (1-2 cümle)"
+
+      - label: "Kapak Görseli"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "İsteğe bağlı kapak fotoğrafı"
+
+      - label: "Okuma Süresi (dk)"
+        name: "readtime"
+        widget: "number"
+        default: 5
+        value_type: "int"
+        min: 1
+        max: 60
+
+      - label: "Etiketler"
+        name: "tags"
+        widget: "string"
+        required: false
+        hint: "Virgülle ayırın: yapay zeka, hukuk, teknoloji"
+
+      - label: "İçerik"
+        name: "body"
+        widget: "markdown"
+        hint: "Yazı içeriği — Markdown formatında"

@@ -1,0 +1,12 @@
+{
+  "name": "kisisel-site",
+  "version": "1.0.0",
+  "description": "Kişisel site — Cloudflare Pages + Decap CMS",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && npx serve . -p 3000"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
